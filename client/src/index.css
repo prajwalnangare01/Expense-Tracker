@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  /* Vibrant, Trustworthy Financial Palette (Light) */
+  --background: 210 20% 98%;
+  --foreground: 222 47% 11%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  
+  --primary: 243 75% 59%; /* Vivid Blue-Purple */
+  --primary-foreground: 210 40% 98%;
+  
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222 47% 11%;
+  
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  
+  --accent: 173 80% 40%; /* Teal Accent for positive numbers */
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 346 84% 61%; /* Soft Red for expenses */
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 243 75% 59%;
+  
+  --radius: 0.75rem;
+
+  --chart-1: 243 75% 59%;
+  --chart-2: 173 80% 40%;
+  --chart-3: 346 84% 61%;
+  --chart-4: 43 96% 58%;
+  --chart-5: 27 96% 61%;
+}
+
+.dark {
+  /* Sophisticated Dark Mode */
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+  
+  --card: 224 40% 16%; /* Slightly lighter than bg */
+  --card-foreground: 210 40% 98%;
+  
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+  
+  --primary: 243 75% 65%; /* Lighter Blue-Purple */
+  --primary-foreground: 222 47% 11%;
+  
+  --secondary: 217 19% 27%;
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 217 19% 27%;
+  --muted-foreground: 215 20% 65%;
+  
+  --accent: 173 70% 50%;
+  --accent-foreground: 222 47% 11%;
+  
+  --destructive: 346 84% 61%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 217 19% 27%;
+  --input: 217 19% 27%;
+  --ring: 243 75% 65%;
+
+  --chart-1: 243 75% 65%;
+  --chart-2: 173 70% 50%;
+  --chart-3: 346 84% 61%;
+  --chart-4: 43 96% 58%;
+  --chart-5: 27 96% 61%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/30 transition-colors;
+}
+
+/* Animations */
+.animate-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.glass-card {
+  @apply bg-card/80 backdrop-blur-md border border-white/10 shadow-lg;
+}
